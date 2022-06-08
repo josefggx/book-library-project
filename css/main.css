@@ -88,11 +88,67 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+  Author's custom styles
    ========================================================================== */
+   div#header-container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 280px; 
+    max-width: 1280px; 
+    padding: 0 20px 0 20px;
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  header > div > button {
+    height: 44px;   
+    width: 84px;
+  }
+
+  main {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  button#add-book-btn {
+    height: 44px;   
+    width: 100px; 
+  }
+
+  div#books-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;  
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1440px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    
+  } 
+
+  div.book-card {
+    display: flex;
+    min-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    background-color: lightcyan;
+  }
+
+  div.invisible-card {
+    visibility: hidden; 
+  }
 
 /* ==========================================================================
-   Helper classes
+  Helper classes
    ========================================================================== */
 
 /*
