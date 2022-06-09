@@ -20,78 +20,70 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+
+  <script src="https://kit.fontawesome.com/75cee50ce6.js"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header>
-    <div id="header-container">
-      <h1>My Library</h1>
-      <button id="sign-in-button" type="button">Log In</button>
-    </div>
-  </header>
+  <div id="page-container">
+    <div id="content-wrap">
 
-  <main>
-    <button id="add-book-btn" type="button">+ Add Book</button>
-    <div id="books-grid">
-      <div class="book-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card invisible-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card invisible-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-      <div class="book-card invisible-card">
-        <p>Title</p>
-        <p>Author</p>
-        <p>10 pages</p>
-        <button>Read</button>
-        <button>Remove</button>
-      </div>
-    </div>
-  </main>
+      <header>
+        <div id="header-container">
+          <h1>My Library</h1>
+          <button id="sign-in-button" type="button">Log In</button>
+        </div>
+      </header>
 
+      <main>
+        <div id="stats">
+          <div id="book-stats">
+            <p id="read">Read: 0</p>
+            <p>|</p>
+            <p id="unread">Unread: 0</p>
+            <p>|</p>
+            <p id="total">Total: 0</p>
+          </div>
+          <div id="add-book-btn-container">
+            <button id="add-book-btn" type="button">Add Book</button>
+          </div>
+        </div>
+
+        <div id="books-grid">
+
+
+          <div class="book-card invisible-card">
+            <p>Title</p>
+            <p>Author</p>
+            <p>10 pages</p>
+            <button>Read</button>
+            <button>Remove</button>
+          </div>
+          <div class="book-card invisible-card">
+            <p>Title</p>
+            <p>Author</p>
+            <p>10 pages</p>
+            <button>Read</button>
+            <button>Remove</button>
+          </div>
+          <div class="book-card invisible-card">
+            <p>Title</p>
+            <p>Author</p>
+            <p>10 pages</p>
+            <button>Read</button>
+            <button>Remove</button>
+          </div>
+        </div>
+      </main>
+
+    </div>
+    <footer>
+      <p id="footer-text">Built & Designed by josefggx | </p> <a
+        href="https://github.com/josefggx"><i
+          class="fa-brands fa-github"></i><span>.</span></a>
+    </footer>
+  </div>
   <script src="js/main.js"></script>
 
 </body>
