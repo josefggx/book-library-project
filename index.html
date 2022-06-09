@@ -46,7 +46,32 @@
             <p id="total">Total: 0</p>
           </div>
           <div id="add-book-btn-container">
-            <button id="add-book-btn" type="button">Add Book</button>
+            <button onclick="formPopup()" id="add-book-btn" type="button">Add
+              Book</button>
+          </div>
+        </div>
+
+        <div class="popup" id="popup-1">
+          <div class="content">
+
+            <form action="#" method="post"id="new-book-form">
+              <h3 id="add-new-book">
+                Add New Book
+              </h3>
+              <input name="title" id="title" aria-label="Title" type="text" name="title"
+                placeholder="Title" />
+              <input id="author" aria-label="Author" type="text" name="author"
+                placeholder="Author" />
+              <input if="pages" aria-label="Pages" type="number" name="pages"
+                placeholder="Pages" />
+              <div id="checkbox-container">
+                <label for="read-or-unread">Have you read this book?</label>
+                <input id="read" type="checkbox" id="read-or-unread" name="read-status"
+                  value="read?">
+              </div>
+              <button id="submit">Submit</button>
+            </form>
+
           </div>
         </div>
 
