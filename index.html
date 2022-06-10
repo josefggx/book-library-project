@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+  <meta name="google-signin-client_id"
+    content="68202494401-k6ksa0bumti2nupml4m1iduensq7rh7v.apps.googleusercontent.com.apps.googleusercontent.com">
 
   <script src="https://kit.fontawesome.com/75cee50ce6.js"
     crossorigin="anonymous"></script>
@@ -32,6 +34,7 @@
       <header>
         <div id="header-container">
           <h1>My Library</h1>
+          <div id="my-signin2"></div>
           <button id="sign-in-button" type="button">Log In</button>
         </div>
       </header>
@@ -88,8 +91,31 @@
           class="fa-brands fa-github"></i><span>.</span></a>
     </footer>
   </div>
-  <script src="js/main.js"></script>
 
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+  
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
+    defer></script>
+    
+<script src="js/main.js"></script>
 </body>
 
 </html>
