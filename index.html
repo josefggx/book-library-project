@@ -15,13 +15,16 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=PT+Serif+Caption:ital@0;1&family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
-  <meta name="google-signin-client_id"
-    content="68202494401-k6ksa0bumti2nupml4m1iduensq7rh7v.apps.googleusercontent.com.apps.googleusercontent.com">
 
   <script src="https://kit.fontawesome.com/75cee50ce6.js"
     crossorigin="anonymous"></script>
@@ -34,8 +37,6 @@
       <header>
         <div id="header-container">
           <h1>My Library</h1>
-          <div id="my-signin2"></div>
-          <button id="sign-in-button" type="button">Log In</button>
         </div>
       </header>
 
@@ -92,30 +93,7 @@
     </footer>
   </div>
 
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
-  
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
-    defer></script>
-    
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

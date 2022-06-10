@@ -90,26 +90,38 @@ textarea {
 /* ==========================================================================
   Author's custom styles
    ========================================================================== */
-   div#header-container {
+:root {
+--primary-color: rgb(14, 100, 83);
+--secondary-color: #f7f1f0;
+--button-yes: #4cb963ff;
+--card-primary: #b8e1ffff;
+--button-no: #e54b4bff;
+--card-secondary: #ffc43dff;
+}
+
+body {
+  background-color: var(--secondary-color)
+}
+
+  div#header-container {
     display: flex;
-    justify-content: space-between;
-    min-width: 280px; 
-    max-width: 1280px; 
+    font-family: 'PT Serif Caption', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    justify-content: center;
+    align-items: center;
+    min-width: 280px;
+    max-height: 80px; 
     padding: 0 20px 0 20px;
-    background-color: pink;
+    background-color: var(--primary-color);
     align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
 
-
-  header > div > button {
-    height: 44px;   
-    width: 84px;
-  }
-
   main {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,8 +141,8 @@ textarea {
     width: 95%;
     justify-content: center;
     gap: 1.2rem;
-    font-family: montserrat, monospace;
-    font-size: 1.6rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.7rem;
     text-align: center;
   }
 
@@ -232,6 +244,18 @@ textarea {
     align-items: center;
     border: 1px solid black;
     background-color: lightcyan;
+  }
+
+  .read-or-not {
+    
+  }
+
+  .book-card > .read {
+    background-color: green;
+  }
+
+  .book-card > .not-read {
+    background-color: red; 
   }
 
   #page-container {
