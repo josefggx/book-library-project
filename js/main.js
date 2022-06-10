@@ -21,7 +21,6 @@ Book.prototype.toggle = function () {
     }
 }
 
-
 function addBookToLibrary(title, author, pages, read, serial) {
     let x = new Book(title, author, pages, read, serial);
     myLibrary.push(x);
@@ -31,6 +30,17 @@ addBookToLibrary("The Hobbit1", "J.R.R. Tolkien.", "295", "Read", "hjgh3jqg2");
 addBookToLibrary("The Hobbit2", "J.R.R. Tolkien.", "295", "Not Read", "zefefee3g2");
 addBookToLibrary("The Hobbit3", "J.R.R. Tolkien.", "295", "Read", "dsffsd33ef");
 addBookToLibrary("The Hobbit4", "J.R.R. Tolkien.", "295", "Read", "ww7G86s6fy");
+
+function setData() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+setData();
+
+let storage = JSON.parse(localStorage.getItem("myLibrary"));
+console.log(storage, typeof storage);
+
+myLibrary = storage;
 
 const container = document.querySelector("#books-grid");
 const cards = document.querySelectorAll(".book-card")
@@ -217,9 +227,4 @@ function serialize() {
         randomSerial += chars.substring(randomNumber, randomNumber + 1);
     }
     return randomSerial;
-}
-
-// Set Data
-function setData() {
-    localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
 }
