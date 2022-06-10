@@ -253,6 +253,7 @@ body {
   .book-card > .read {
     background-color: green;
   }
+  
 
   .book-card > .not-read {
     background-color: red; 
