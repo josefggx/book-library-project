@@ -58,11 +58,11 @@
               <h3 id="add-new-book">
                 Add New Book
               </h3>
-              <input name="title" id="title" aria-label="Title" type="text" name="title"
+              <input required name="title" id="title" aria-label="Title" type="text" name="title"
                 placeholder="Title" />
-              <input id="author" aria-label="Author" type="text" name="author"
+              <input required id="author" aria-label="Author" type="text" name="author"
                 placeholder="Author" />
-              <input if="pages" aria-label="Pages" type="number" name="pages"
+              <input required if="pages" aria-label="Pages" type="number" name="pages"
                 placeholder="Pages" />
               <div id="checkbox-container">
                 <label for="read-or-unread">Have you read this book?</label>
@@ -78,27 +78,6 @@
         <div id="books-grid">
 
 
-          <div class="invisible-card">
-            <p>Title</p>
-            <p>Author</p>
-            <p>10 pages</p>
-            <button>Read</button>
-            <button>Remove</button>
-          </div>
-          <div class="book-card invisible-card">
-            <p>Title</p>
-            <p>Author</p>
-            <p>10 pages</p>
-            <button>Read</button>
-            <button>Remove</button>
-          </div>
-          <div class="book-card invisible-card">
-            <p>Title</p>
-            <p>Author</p>
-            <p>10 pages</p>
-            <button>Read</button>
-            <button>Remove</button>
-          </div>
         </div>
       </main>
 
