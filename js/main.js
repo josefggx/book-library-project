@@ -70,10 +70,10 @@ function displayBook() {
         card.dataset.index = element.serial;
         // @ts-ignore
         container.insertBefore(card, container.firstChild);
-        const data = document.createElement("p");
-        data.classList.add("data");
-        card.appendChild(data);
-        data.textContent = `DOM: ${card.dataset.index} | Array: ${element.serial}`
+        // const data = document.createElement("p");
+        // data.classList.add("data");
+        // card.appendChild(data);
+        // data.textContent = `DOM: ${card.dataset.index} | Array: ${element.serial}`
         const title = document.createElement("p");
         title.classList.add("title");
         title.textContent = element.title;
