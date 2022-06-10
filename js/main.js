@@ -135,7 +135,6 @@ form.addEventListener('submit', (event) => {
 });
 
 function removeCard() {
-
     const removeBtns = document.querySelectorAll('.remove');
     removeBtns.forEach((button) => {
         button.addEventListener('click', () => {
@@ -151,6 +150,7 @@ function removeCard() {
             displayStats();
             // displayBook();
             console.log(myLibrary);
+            setData();
         });
     });
 }
@@ -191,12 +191,6 @@ window.onclick = function (event) {
     }
 }
 
-const header2 = document.querySelector("#header-container")
-header2.addEventListener("click", (event) => {
-    // @ts-ignore
-    header2.style.backgroundColor = "blue";
-})
-
 // Working on this
 const readBtn = document.querySelectorAll(".read");
 // @ts-ignore
@@ -215,6 +209,7 @@ readBtn.forEach((button) => {
                 console.log(element);
             }
         })
+        setData();
     })
 })
 
