@@ -26,26 +26,25 @@ function addBookToLibrary(title, author, pages, read, serial) {
     myLibrary.push(x);
 }
 
-addBookToLibrary("The Hobbit1", "J.R.R. Tolkien.", "295", "Read", "hjgh3jqg2");
-addBookToLibrary("The Hobbit2", "J.R.R. Tolkien.", "295", "Not Read", "zefefee3g2");
-addBookToLibrary("The Hobbit3", "J.R.R. Tolkien.", "295", "Read", "dsffsd33ef");
-addBookToLibrary("The Hobbit4", "J.R.R. Tolkien.", "295", "Read", "ww7G86s6fy");
-
 function setData() {
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
-setData();
-
+// Get the local storage and setting the prototype again
+// @ts-ignore
 let storage = JSON.parse(localStorage.getItem("myLibrary"));
-console.log(storage, typeof storage);
 
 myLibrary = storage;
+myLibrary.forEach(book => Object.setPrototypeOf(book, Book.prototype));
+
+
+console.log(myLibrary);
 
 const container = document.querySelector("#books-grid");
 const cards = document.querySelectorAll(".book-card")
 
 function clearContainer() {
+    // @ts-ignore
     container.innerHTML = "";
     const card = document.createElement('div');
     card.classList.add('invisible-card');
@@ -53,8 +52,11 @@ function clearContainer() {
     card2.classList.add('invisible-card');
     const card3 = document.createElement('div');
     card3.classList.add('invisible-card');
+    // @ts-ignore
     container.insertBefore(card, container.firstChild);
+    // @ts-ignore
     container.insertBefore(card2, container.firstChild);
+    // @ts-ignore
     container.insertBefore(card3, container.firstChild);
 }
 
@@ -66,6 +68,7 @@ function displayBook() {
         // @ts-ignore
         // card.dataset.index = myLibrary.indexOf(element); 
         card.dataset.index = element.serial;
+        // @ts-ignore
         container.insertBefore(card, container.firstChild);
         const data = document.createElement("p");
         data.classList.add("data");
@@ -101,6 +104,7 @@ const form = document.querySelector("#new-book-form");
 const submit = document.querySelector("#submit");
 const header = document.querySelector("#header-container");
 
+// @ts-ignore
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     // @ts-ignore
@@ -127,6 +131,7 @@ form.addEventListener('submit', (event) => {
     myLibrary.push(newBook);
     setData();
     displayBook();
+    readStatus();
     removeCard();
     displayStats();
     console.log(myLibrary);
@@ -146,6 +151,7 @@ function removeCard() {
                     myLibrary.splice(myLibrary.indexOf(element), 1);
                 }
             })
+            // @ts-ignore
             button.parentElement.remove();
             displayStats();
             // displayBook();
@@ -169,10 +175,13 @@ function displayStats() {
         }
     })
     const readBooks = document.querySelector("#read");
+    // @ts-ignore
     readBooks.textContent = `Read: ${myReadBooks}`;
     const unreadBooks = document.querySelector("#unread");
+    // @ts-ignore
     unreadBooks.textContent = `Unread: ${myUnreadBooks}`;
     const totalBooks = document.querySelector("#total");
+    // @ts-ignore
     totalBooks.textContent = `Total: ${myLibraryLength}`;
 }
 
@@ -191,27 +200,33 @@ window.onclick = function (event) {
     }
 }
 
-// Working on this
-const readBtn = document.querySelectorAll(".read");
-// @ts-ignore
-readBtn.forEach((button) => {
-    button.addEventListener("click", () => {
-        if(button.textContent == "Not Read") {
-            button.textContent = "Read";
-        }
-        else if(button.textContent == "Read") {
-            button.textContent = "Not Read";
-        }
-        let bookIndex = button.parentElement.dataset.index;
-        myLibrary.forEach((element) => {
-            if(element.serial === bookIndex) {
-                element.toggle();
-                console.log(element);
+function readStatus() {
+    const readBtn = document.querySelectorAll(".read");
+    // @ts-ignore
+    readBtn.forEach((button) => {
+        button.addEventListener("click", () => {
+            if(button.textContent == "Not Read") {
+                button.textContent = "Read";
             }
+            else if(button.textContent == "Read") {
+                button.textContent = "Not Read";
+            }
+            // @ts-ignore
+            let bookIndex = button.parentElement.dataset.index;
+            myLibrary.forEach((book) => {
+                if(book.serial === bookIndex) {
+                    book.toggle();
+                    console.log(book);
+                }
+            })
+            displayStats();
+            setData();
         })
-        setData();
     })
-})
+}
+
+readStatus();
+
 
 function serialize() {
     let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
