@@ -35,8 +35,8 @@ function setData() {
 let storage = JSON.parse(localStorage.getItem("myLibrary"));
 
 myLibrary = storage;
-myLibrary.forEach(book => Object.setPrototypeOf(book, Book.prototype));
 
+myLibrary.forEach(book => Object.setPrototypeOf(book, Book.prototype));
 
 console.log(myLibrary);
 
@@ -87,8 +87,15 @@ function displayBook() {
         pages.textContent = `${element.pages} pages`;
         card.appendChild(pages);
         const read = document.createElement("button");
-        read.classList.add("read");
+        // Working here
         read.textContent = element.read;
+        if(read.textContent === "Read") {
+            read.classList.add("read-or-not");
+            read.classList.add("read");
+        } else {
+            read.classList.add("read-or-not");
+            read.classList.add("not-read");
+        }
         card.appendChild(read);
         const remove = document.createElement("button");
         remove.classList.add("remove");
@@ -103,6 +110,12 @@ displayBook();
 const form = document.querySelector("#new-book-form");
 const submit = document.querySelector("#submit");
 const header = document.querySelector("#header-container");
+
+const popup = document.querySelector(".popup");
+function formPopup() {
+    // @ts-ignore
+    popup.style.display = "block"
+}
 
 // @ts-ignore
 form.addEventListener('submit', (event) => {
@@ -187,11 +200,6 @@ function displayStats() {
 
 displayStats();
 
-const popup = document.querySelector(".popup");
-function formPopup() {
-    // @ts-ignore
-    popup.style.display = "block"
-}
 
 window.onclick = function (event) {
     if(event.target == popup) {
@@ -201,15 +209,19 @@ window.onclick = function (event) {
 }
 
 function readStatus() {
-    const readBtn = document.querySelectorAll(".read");
+    const readBtn = document.querySelectorAll(".read-or-not");
     // @ts-ignore
     readBtn.forEach((button) => {
         button.addEventListener("click", () => {
             if(button.textContent == "Not Read") {
                 button.textContent = "Read";
+                button.classList.remove("not-read");
+                button.classList.add("read");
             }
             else if(button.textContent == "Read") {
                 button.textContent = "Not Read";
+                button.classList.add("not-read");
+                button.classList.remove("read");
             }
             // @ts-ignore
             let bookIndex = button.parentElement.dataset.index;
