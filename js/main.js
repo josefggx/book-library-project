@@ -36,10 +36,13 @@ let storage = JSON.parse(localStorage.getItem("myLibrary"));
 
 myLibrary = storage;
 
+if(myLibrary === null) {
+    myLibrary = [];
+}
+
 myLibrary.forEach(book => Object.setPrototypeOf(book, Book.prototype));
 
-console.log(myLibrary);
-
+const header = document.querySelector("#header-container");
 const container = document.querySelector("#books-grid");
 const cards = document.querySelectorAll(".book-card")
 
@@ -109,13 +112,18 @@ displayBook();
 
 const form = document.querySelector("#new-book-form");
 const submit = document.querySelector("#submit");
-const header = document.querySelector("#header-container");
+const addBookBtn = document.querySelector("#add-book-btn");
 
 const popup = document.querySelector(".popup");
 function formPopup() {
     // @ts-ignore
     popup.style.display = "block"
 }
+
+// @ts-ignore
+addBookBtn.addEventListener("click", () => {
+    formPopup();
+})
 
 // @ts-ignore
 form.addEventListener('submit', (event) => {
