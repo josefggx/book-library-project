@@ -279,6 +279,8 @@ body {
 
 #new-book-form h3 {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size:1.9rem;
 } 
 
 #checkbox-container {
@@ -287,6 +289,85 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+
+.form__field {
+	font-family: inherit;
+  width: 100%;
+	border: 0;
+	border-bottom: 2px solid #253a86;
+  outline: 0;
+	font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+	color: rgb(0, 0, 0);
+	padding: 7px 0;
+	background: transparent;
+	transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+	color: gray;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+	font-size: 1.3rem;
+	cursor: text; 
+}
+
+.form__field:focus {
+	padding-bottom: 6px;
+	border-width: 3px;
+	border-image: linear-gradient(to right, #1d4194, #378eeb);
+	border-image-slice: 1;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+	box-shadow: none;
+}
+
+#checkbox-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  margin: 1rem 0 1rem 0;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+#checkbox-container input {
+  cursor: pointer;
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+
+/* Show the checkmark when checked */
+#checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+#checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
   div#books-grid {
@@ -359,7 +440,7 @@ div.book-card > .title {
   div.invisible-card {
     visibility: hidden; 
     display: flex;
-     width: 260px;
+    width: 260px;
     padding: 10px;
     flex-direction: column;
     align-items: center;

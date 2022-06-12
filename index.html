@@ -62,16 +62,18 @@
               <h3 id="add-new-book">
                 Add New Book
               </h3>
-              <input required name="title" id="title" aria-label="Title"
-                type="text" name="title" placeholder="Title" />
-              <input required id="author" aria-label="Author" type="text"
-                name="author" placeholder="Author" />
-              <input required if="pages" aria-label="Pages" type="number"
-                name="pages" placeholder="Pages" />
+              <input required name="title" id="title" class="form__field"
+                aria-label="Title" type="text" name="title"
+                placeholder="Title" />
+              <input required id="author" class="form__field"
+                aria-label="Author" type="text" name="author"
+                placeholder="Author" />
+              <input class="form__field" required id="pages" aria-label="Pages"
+                type="number" name="pages" placeholder="Pages" />
               <div id="checkbox-container">
                 <label for="read-or-unread">Have you read this book?</label>
-                <input id="read" type="checkbox" id="read-or-unread"
-                  name="read-status" value="read?">
+                  <input name="read" type="checkbox" id="read-or-unread"
+                    name="read-status" value="read?">
               </div>
               <button id="submit">Submit</button>
             </form>
