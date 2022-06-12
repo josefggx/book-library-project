@@ -113,12 +113,19 @@ displayBook();
 const form = document.querySelector("#new-book-form");
 const submit = document.querySelector("#submit");
 const addBookBtn = document.querySelector("#add-book-btn");
+const closeBtn = document.querySelector("#close-btn");
 
 const popup = document.querySelector(".popup");
 function formPopup() {
     // @ts-ignore
     popup.style.display = "block"
 }
+
+// @ts-ignore
+closeBtn.addEventListener("click", () => {
+    // @ts-ignore
+    popup.style.display = "none";
+})
 
 // @ts-ignore
 addBookBtn.addEventListener("click", () => {
