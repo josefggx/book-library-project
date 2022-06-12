@@ -283,14 +283,6 @@ body {
   font-size:1.9rem;
 } 
 
-#checkbox-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
 
 .form__field {
 	font-family: inherit;
@@ -329,14 +321,17 @@ body {
 
 #checkbox-container {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-family: 'Roboto', sans-serif;
-  margin: 1rem 0 1rem 0;
+  margin: 0.5rem 0 0.5rem 0;
   position: relative;
-  margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -347,8 +342,8 @@ body {
 /* Hide the browser's default checkbox */
 #checkbox-container input {
   cursor: pointer;
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 
@@ -368,6 +363,55 @@ body {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+#submit {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius:40px;
+  background: #1b3d8e;
+  border: none;
+  color: white;
+  letter-spacing:1px;
+  text-shadow:0;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 12px; 
+  cursor: pointer;
+  transition: all 0.25s ease;
+  
+}
+
+  #submit:hover {
+    color:white;
+    background: #16347b;
+  }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
   div#books-grid {
@@ -391,7 +435,7 @@ body {
     align-items: center;
     border: 3px solid black;
     border-radius: 14px;
-    background: linear-gradient(rgb(14, 68, 100) 22%, #e3e8f1 22%) no-repeat;
+    background: linear-gradient(rgb(14, 68, 100) 22%, rgb(238, 241, 248) 22%) no-repeat;
     position: relative;
   }
 
