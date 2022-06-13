@@ -162,7 +162,6 @@ form.addEventListener('submit', (event) => {
     readStatus();
     removeCard();
     displayStats();
-    console.log(myLibrary);
     // @ts-ignore
     form.reset();
 });
@@ -182,8 +181,6 @@ function removeCard() {
             // @ts-ignore
             button.parentElement.remove();
             displayStats();
-            // displayBook();
-            console.log(myLibrary);
             setData();
         });
     });
@@ -215,14 +212,6 @@ function displayStats() {
 
 displayStats();
 
-
-window.onclick = function (event) {
-    if(event.target == popup) {
-        // @ts-ignore
-        popup.style.display = "none";
-    }
-}
-
 function readStatus() {
     const readBtn = document.querySelectorAll(".read-or-not");
     // @ts-ignore
@@ -243,7 +232,6 @@ function readStatus() {
             myLibrary.forEach((book) => {
                 if(book.serial === bookIndex) {
                     book.toggle();
-                    console.log(book);
                 }
             })
             displayStats();
